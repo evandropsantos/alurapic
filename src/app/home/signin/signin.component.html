@@ -1,13 +1,26 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4" [formGroup]="loginForm">
+<form class="form mt-4" [formGroup]="loginForm" (submit)="login()">
   <div class="form-group">
-    <input formControlName="userName" class="form-control" placeholder="user name" type="text" autofocus />
+    <input
+      #userNameInput
+      formControlName="userName"
+      class="form-control"
+      placeholder="user name"
+      type="text"
+      autofocus
+    />
     <ap-vmessage text="user name is required!" *ngIf="loginForm.get('userName').errors?.required"></ap-vmessage>
   </div>
 
   <div class="form-group">
-    <input formControlName="password" class="form-control" placeholder="password" type="password" autocomplete="on" />
+    <input
+      formControlName="password"
+      class="form-control"
+      placeholder="password"
+      type="password"
+      autocomplete="on"
+    />
     <ap-vmessage text="password is required!" *ngIf="loginForm.get('password').errors?.required"></ap-vmessage>
   </div>
 
